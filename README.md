@@ -57,68 +57,95 @@ tracking-viewer/
     └── api.md            # API 문서
 ```
 
-## 빠른 시작
+## 🚀 빠른 시작
+
+**5분 안에 시작하기**: [QUICK_START.md](QUICK_START.md)
+
+### 1분 요약
+
+```bash
+# 백엔드 실행 (터미널 1)
+cd backend && npm install && npm run dev
+
+# 프론트엔드 실행 (터미널 2)
+cd frontend && npm install && npm run dev
+
+# 브라우저에서 확인
+open http://localhost:3000
+
+# 테스트 패킷 전송
+./test-sender.sh
+```
 
 ### 요구사항
 
 - Node.js 20+
-- Python 3.11+
-- Proxyman (macOS)
-- iOS Simulator 또는 실제 디바이스
+- Python 3.11+ (Proxyman 연동 시)
+- Proxyman (macOS, 선택사항)
 
-### 설치
+### 설치 및 실행
 
-1. 저장소 클론
+자세한 내용은 다음 문서를 참고하세요:
+- **빠른 시작**: [QUICK_START.md](QUICK_START.md) - 5분 가이드
+- **상세 설정**: [docs/setup.md](docs/setup.md) - 전체 설치 가이드
+- **Proxyman 연동**: [proxyman-scripts/setup-guide.md](proxyman-scripts/setup-guide.md)
+- **API 문서**: [docs/api.md](docs/api.md)
+
+## 📖 사용법
+
+### 기본 사용
+
+1. 서버 실행 (위 설치 단계 참고)
+2. 브라우저에서 http://localhost:3000 접속
+3. 실시간 패킷 모니터링 시작!
+
+### 테스트 모드
+
+개발/테스트용 더미 패킷 전송:
 ```bash
-git clone https://github.com/kidsnote/tracking-viewer.git
-cd tracking-viewer
+./test-sender.sh
 ```
 
-2. 백엔드 설치 및 실행
+### Proxyman 연동
+
+실제 iOS 앱의 트래킹 패킷 캡처:
 ```bash
-cd backend
-npm install
-npm run dev
+# 1. Python 패키지 설치
+pip3 install requests
+
+# 2. Proxyman 실행 및 스크립트 추가
+# 상세 가이드: proxyman-scripts/setup-guide.md
 ```
 
-3. 프론트엔드 설치 및 실행
-```bash
-cd frontend
-npm install
-npm run dev
-```
+## 📸 스크린샷
 
-4. Proxyman 설정
-- Proxyman 실행
-- iOS 디바이스/시뮬레이터 연결
-- SSL Proxying 활성화
-- `proxyman-scripts/` 디렉토리의 스크립트 추가
+웹 대시보드: http://localhost:3000
 
-자세한 설정은 [docs/setup.md](docs/setup.md)를 참고하세요.
+- **실시간 패킷 스트림**: 모든 트래킹 이벤트를 실시간 확인
+- **타입별 필터링**: Tiara, 광고 노출/클릭, 커스텀 지표 분류
+- **상세 뷰어**: JSON 형식으로 파라미터 확인
+- **WebSocket 실시간 업데이트**: 패킷 발생 즉시 대시보드에 표시
 
-## 사용법
+## ✅ 개발 로드맵
 
-1. Proxyman에서 트래킹 패킷 캡처 시작
-2. 웹 브라우저에서 `http://localhost:3000` 접속
-3. 실시간으로 패킷 확인 및 필터링
-
-## 개발 로드맵
-
-### Phase 1: MVP (현재)
+### Phase 1: MVP ✅ 완료
 - [x] 프로젝트 구조 설정
-- [ ] Proxyman 스크립트 작성
-- [ ] 기본 백엔드 API
-- [ ] 기본 프론트엔드 UI
+- [x] Proxyman 스크립트 작성
+- [x] 백엔드 API (REST + WebSocket)
+- [x] 프론트엔드 대시보드
+- [x] 실시간 패킷 모니터링
+- [x] 테스트 도구 (test-sender.sh)
 
-### Phase 2: 핵심 기능
-- [ ] 실시간 WebSocket 통신
-- [ ] 패킷 필터링 & 검색
-- [ ] 데이터 저장 (SQLite)
+### Phase 2: 실전 배포 (진행 중)
+- [ ] 키즈노트 실제 도메인 연동
+- [ ] 영구 저장소 (SQLite/PostgreSQL)
+- [ ] Docker 컨테이너화
 
 ### Phase 3: 고도화
-- [ ] 통계 & 차트
-- [ ] 알림 기능
+- [ ] 패킷 통계 & 차트
+- [ ] 이벤트 알림 기능
 - [ ] 테스트 케이스 저장
+- [ ] 파라미터 검증 기능
 
 ## 기여
 
