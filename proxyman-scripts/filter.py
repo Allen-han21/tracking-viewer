@@ -23,18 +23,19 @@ BACKEND_URL = "http://localhost:3001/api/packets"
 # 필터링할 도메인/경로 패턴
 TRACKING_PATTERNS = [
     # Tiara (카카오)
-    "track.tiara.kakao.com",
-    "pixel.tiara.kakao.com",
+    "stat.tiara.daum.net",
+    "tr.ad.daum.net",
 
     # 자체 광고 지표 (실제 도메인으로 수정 필요)
-    "/ad/imp",
-    "/ad/click",
-    "/tracking/impression",
-    "/tracking/click",
+    "/imp?cpid",
+    "/kidsnote_benefit/*/click?",
 
     # Google Analytics (제거 예정이지만 일단 포함)
     "google-analytics.com",
     "analytics.google.com",
+
+    # 혜택 URL 
+    # "kidsnote/banner",
 ]
 
 
